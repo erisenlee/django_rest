@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Host,EndPoint
+from .models import Host,EndPoint,DataBase
 # Register your models here.
 
 class HostAdmin(admin.ModelAdmin):
@@ -7,4 +7,5 @@ class HostAdmin(admin.ModelAdmin):
     
 
 admin.site.register(Host, HostAdmin)
+admin.site.register(DataBase)
 admin.site.register(EndPoint)

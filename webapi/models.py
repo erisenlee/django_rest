@@ -3,6 +3,8 @@ import uuid
 from urllib.parse import urljoin
 from django.contrib.auth.models import User
 
+# class User(AbstractUser):
+    # pass
 # Create your models here.
 class Host(models.Model):
     id=models.UUIDField('id',primary_key=True,default=uuid.uuid4,editable=False)
@@ -34,6 +36,7 @@ class EndPoint(models.Model):
 
 class DataBase(models.Model):
     id = models.UUIDField('id', primary_key=True, default=uuid.uuid4, editable=False)
+    title=models.CharField('title',max_length=200,unique=True)
     created = models.DateTimeField('created', auto_now_add=True)
     web_address = models.ForeignKey('Host', on_delete=models.CASCADE)
     username = models.CharField('user', max_length=200, blank=True, null=True)
@@ -41,5 +44,8 @@ class DataBase(models.Model):
     host = models.CharField('host', max_length=200, blank=True, null=True)
     port = models.CharField('port', max_length=200, blank=True, null=True)
     db = models.CharField('db', max_length=200, blank=True, null=True)
-    user=models.ForeignKey('User',on_delete=models.CASCADE)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
     # protocl=models.CharField('protocl'choices=)
+
+    def __str__(self):
+        return '{}'.format(self.title)
