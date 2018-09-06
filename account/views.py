@@ -5,6 +5,7 @@ from rest_framework import viewsets
 # Create your views here.
 
 class AccountViewset(viewsets.ReadOnlyModelViewSet):
+    lookup_field='id'
     queryset = Account.objects.all()
     serializer_class = AccountSerializer
     
