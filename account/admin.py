@@ -7,4 +7,6 @@ class AccountAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'url_link')
 
 
-admin.site.register(AccountAdmin, Account)
+
+admin.site.register(Account, AccountAdmin)
+

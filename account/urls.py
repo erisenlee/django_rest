@@ -1,7 +1,13 @@
-from django.urls import path
+from django.urls import path,include
+from .views import AccountViewset
+from rest_framework import routers
 
+
+router = routers.DefaultRouter()
+router.register('account', AccountViewset)
 
 
 urlpatterns = [
-    path('/', ),
+    path('', include(router.urls)),
+    
 ]
