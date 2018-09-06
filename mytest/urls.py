@@ -22,5 +22,5 @@ urlpatterns = [
     # path('api-auth/', include('rest_framework.urls')),
     path('api-token-auth/', views.obtain_auth_token),
     path('api/', include('webapi.urls')),
-    path('account/', include('account.urls')),
+    path('api/', include('account.urls')),
 ]
