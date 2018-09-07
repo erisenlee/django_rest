@@ -1,11 +1,11 @@
 from django.urls import path, include
 from rest_framework import routers
-from .views import *
+from .views import HostViewSet,EndpointViewSet
 
-router = routers.DefaultRouter(trailing_slash=False)
+router = routers.SimpleRouter(trailing_slash=False)
 
-router.register(r'hosts',HostViewSet)
-router.register(r'endpoints',EndpointViewSet)
+router.register(r'hosts',HostViewSet, base_name='host')
+router.register(r'endpoints',EndpointViewSet ,base_name='endpoint')
 
 
 urlpatterns = [

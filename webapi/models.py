@@ -16,7 +16,11 @@ class Host(models.Model):
     created=models.DateTimeField('created',auto_now_add=True)
 
     def get_login_url(self):
-        return urljoin(self.title,self.login_endpoint)
+        return urljoin(self.title, self.login_endpoint)
+        
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('host-detail', kwargs={'id': self.id})
 
     def __str__(self):
         return self.title
@@ -27,6 +31,11 @@ class EndPoint(models.Model):
     endpoint = models.CharField('endpoint', max_length=200)
     host = models.ForeignKey('Host', on_delete=models.CASCADE)
     description = models.CharField('descrpition', max_length=300, blank=True, null=True)
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('endpoint-detail', kwargs={'id': self.id})
+
     
     def __str__(self):
         return '{}'.format(self.endpoint)
