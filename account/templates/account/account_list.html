@@ -1,0 +1,22 @@
+{% extends 'account/base.html' %}
+
+{% block title %}
+Account    
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+            <div class="row">
+                <ul>
+        
+                    {% for account in account_list %}
+                        <li>{{account.name}}</li>
+                    {% endfor %}
+                        
+                </ul>
+            </div>
+    </div>
+    
+{% endblock content %}
+    
+    
